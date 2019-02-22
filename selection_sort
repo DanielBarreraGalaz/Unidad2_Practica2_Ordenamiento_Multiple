@@ -1,0 +1,49 @@
+package Unidad2_Practica2_ordenamiento_multiple;
+
+public class selection_sort 
+{
+	private int ordenado[];
+	private int n;
+	
+	public selection_sort(int n, int vector[])
+	{
+		this.n = n;
+		ordenado= vector;
+	}
+    
+    
+	public int[] ordena_por_selection_sort()
+	{
+		int i, j, pasos = 0, aux;
+		int min;   ///INDICE DEL MINIMO
+		
+		for(i=0; i<n; i++)
+		{
+			min = i;
+			
+			for(j=i+1; j<n; j++)
+			{
+				if(ordenado[j] < ordenado[min])
+				{
+					min = j;
+				}	
+				
+		        pasos++;
+		        /*El contador de los pasos va despues del "if" porque sino solo va a entrar cada vez que se cumpla la condicion...
+		          y lo que queremos es que nos cuente los pasos cada vez que itere*/
+			}
+			
+			/*INTERCAMBIO*/
+			aux = ordenado[i];
+			ordenado[i] = ordenado[min];
+			ordenado[min] = aux;
+			
+		}//fin for i
+		
+		System.out.println("Vector ordenado por SELECTION SORT");
+		System.out.println("Numero de pasos: " + pasos);
+		return ordenado;  //Cuando se regresa un arreglo se hace sin los corchetes
+		
+	}//fin GETTER/SETTER selection_sort
+
+}
